@@ -1,0 +1,12 @@
+message("Welcome to our 1-day workshop")
+message("R: The tidyverse and beyond
+        ")
+
+
+message("As a reminder to our future-selves, in the
+morning session we learn all about R-projects,
+organising our files and writing better code.
+      
+In the afternoon session, we dive into the popular
+tidyverse packages readr, tidyr, dplyr and ggplot2")
+
