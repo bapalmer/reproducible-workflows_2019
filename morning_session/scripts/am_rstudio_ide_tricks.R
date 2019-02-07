@@ -37,3 +37,6 @@ source("")
 
 # 7. Clear your console
 # Ctrl/Cmd+L
+
+# 8. Standardize your line indentation
+# Ctrl/Cmd+I

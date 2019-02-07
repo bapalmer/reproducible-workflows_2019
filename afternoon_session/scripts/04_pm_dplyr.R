@@ -8,32 +8,33 @@
 # library(tidyverse)
 
 # 1. Let's reload our messy data from earlier and select the columns we want
+
 messy_data <- read_csv("afternoon_session/data/brauer_data.csv") %>%
   
   select(c("GID", "NAME", "G0.05", "G0.1", "G0.15", "G0.2", 
            "G0.25", "G0.3"))
 
 # We could also do this.....
-messy_data <- read_csv("morning_session/data/brauer_data.csv") %>%
+messy_data <- read_csv("afternoon_session/data/brauer_data.csv") %>%
   
   select(GID, NAME, G0.05, G0.1, G0.15, G0.2, G0.25, G0.3)
 
 # Or this.......
-messy_data <- read_csv("morning_session/data/brauer_data.csv") %>%
+messy_data <- read_csv("afternoon_session/data/brauer_data.csv") %>%
   
   select(GID, NAME, G0.05:G0.3)
 
-# Generally, whatever lead to the least amount of writing is the winner
+# Generally, whatever results in the least amount of typing wins
 
 # 2. The column "GID" is not worth keeping
-# Let's get rid of it
+# Let's get rid of it using select()
+
 messy_data <- messy_data %>%
-  
   select(-GID)
 
 # 3. Let's re-run of tidy code from earlier
+
 tidy_data <- messy_data %>%
-  
   separate(NAME,
            c("gene", "biological_process", "molecular_function", 
              "systematic_name", "a_number"),
@@ -57,15 +58,19 @@ tidy_data <- tidy_data %>%
   mutate_at(vars(gene:expression), 
             funs(trimws)) # This will remove whitespace
 
-# 5. What if we want to narrow the field?
+# 5. There's a lot of information contained within thisi file
+
 length(unique(tidy_data$gene))
 length(unique(tidy_data$biological_process))
+# What if we want to narrow down the field a little?
 
-# Lets reduce our data down to a specific process
+# Lets reduce our data to a specific process
+
 leucine <- tidy_data %>%
   filter(biological_process == "leucine biosynthesis")
 
 # 6. Repeat this using a logical operator
+
 leu1 <- tidy_data %>%
   
   filter(biological_process == "leucine biosynthesis" &
@@ -95,6 +100,7 @@ leu1 <- leu1 %>%
   mutate(total = growth_rate * expression)
 
 # 8. group_by() allows actions to be performed by group
+
 leu1_gp <- leu1 %>%
   
   group_by(gene)
@@ -105,6 +111,7 @@ leu1_gp <- leu1 %>%
 
 # 9. summarise() reduces multiple values down to a single summary
 # Lets make some use of our grouped data
+
 leu1_gp %>%
   
   summarise(mean = mean(expression),
@@ -112,6 +119,7 @@ leu1_gp %>%
             sd = sd(expression))
 
 # 10. If you need to remove the grouping.....
+
 leu_ungp <- ungroup(leu1_gp)
 
 rm(leu_ungp, leu1, leu1_gp)

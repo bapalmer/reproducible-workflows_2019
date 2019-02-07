@@ -2,7 +2,7 @@
 # 1-day R workshop 
 # Morning practical session C
 # 9th February 2019
-# 07_ggplot2.R
+# 07_pm_ggplot2.R
 #########################################################################
 # ggplot2 is loaded when the tidyverse package is called
 # library(tidyverse)
@@ -10,11 +10,12 @@
 # The key thing to note is that all elements of the plot can be modified
 
 # Load the data
-clean_genes <- read_csv("morning_session/data/clean_brauer_data.csv")
+
+clean_genes <- read_csv("afternoon_session/data/clean_brauer_data.csv")
 
 # Let's zoom in on a single gene 
 leu1 <- clean_genes %>%
-  filter(gene == "LEU1") %>%
+  filter(gene == "LEU1" & nutrient == "Glucose") %>%
   select(gene, growth_rate, expression)
 
 # What are the three main elements needed to generate a ggplot2 graph?
@@ -30,16 +31,18 @@ plot_a # i.e. an empty graph
 # The second part is defining the coordinate system;
 # What elements of the data are to be plotted
 # geoms are geometric objects that represent the data
+
 plot_b <- plot_a + # In ggplot2 we add layers to develop the plot
   geom_point(mapping = aes(x = growth_rate, y = expression)) 
 plot_b
 
 # This can also be written as;
+
 plot_c <- ggplot(data = leu1, mapping = aes(x = growth_rate, y = expression)) +
   geom_point()
 plot_c
 
-# What's the difference between these?
+# What's the main difference between plot_b and plot_c?
 # Well lets try adding another geom....
 
 plot_b +
@@ -48,12 +51,15 @@ plot_b +
 plot_c + 
   geom_smooth(method = "lm")
 
+# Ans: Aesthetics defined globally in plot_c but locally in plot_b
+
 # 2. Add some colour
 ggplot(data = leu1, 
        mapping = aes(x = growth_rate, y = expression, color = gene)) +
   geom_point() 
 
 # 3. Lets combine with the geom for a best fit line to the data
+
 ggplot(data = leu1, 
        mapping =  aes(x = growth_rate, y = expression,  color = gene)) +
   geom_point() +
@@ -62,7 +68,8 @@ ggplot(data = leu1,
 
 # Instead of looking at one gene we can use the "biological_process" column 
 # to identify groups of genes involved in the same biological pathway
-# We can also pipe our data directly into ggplot
+# We can also 'pipe' our data directly into ggplot()
+
 clean_genes %>%
   filter(biological_process == "leucine biosynthesis") %>%
   ggplot(mapping = aes(x = growth_rate, y = expression, color = gene)) +
@@ -72,6 +79,7 @@ clean_genes %>%
 # 4. Instead of colour, we can identify by shape
 # If you have more than six groups you will need to define the shapes 
 # R has 25 built in shapes that are identified by numbers
+
 clean_genes %>%
   filter(biological_process == "leucine biosynthesis") %>%
   ggplot(mapping = aes(x = growth_rate, y = expression, shape = gene)) +
@@ -79,6 +87,7 @@ clean_genes %>%
   geom_smooth(method = "lm", se = FALSE) 
 
 # You can't define the shape of a line graph, but you can define the linetype
+
 clean_genes %>%
   filter(biological_process == "leucine biosynthesis") %>%
   ggplot(mapping = aes(x = growth_rate, y = expression, shape = gene)) +
@@ -86,6 +95,7 @@ clean_genes %>%
   geom_smooth(mapping = aes(linetype = gene), method = "lm", se = FALSE) 
 
 # 5. Using "facet_wrap" we can create subplots
+
 clean_genes %>%
   filter(biological_process == "leucine biosynthesis") %>%
   ggplot(mapping = aes(x = growth_rate, y = expression, color = gene)) +
@@ -97,9 +107,11 @@ clean_genes %>%
 # You can also specify different data for each layer
 # The local argument for the geom overrides the global argument from ggplot
 # for that layer only
+
 leucine_genes <- clean_genes %>%
-  filter(biological_process == "leucine biosynthesis")
-ggplot(data = leucine_genes,
+  filter(biological_process == "leucine biosynthesis" & nutrient == "Glucose")
+
+ggplot(data = leucine_genes, 
        mapping = aes(x = growth_rate, y = expression, color = gene)) +
   geom_point() +
   geom_smooth(data = filter(leucine_genes, gene == "LEU1"),
@@ -107,12 +119,14 @@ ggplot(data = leucine_genes,
 
 # 7. Modifying other elements of the output using labels and themes
 # Basic plot
+
 ggplot(data = leu1, 
        mapping =  aes(x = growth_rate, y = expression, color = gene)) +
   geom_point() +
   geom_line() 
 
 # Add some labels
+
 ggplot(data = leu1, 
        mapping =  aes(x = growth_rate, y = expression, color = gene)) +
   geom_point() +
@@ -122,6 +136,7 @@ ggplot(data = leu1,
     theme_classic() # Format the background
 
 # Add some more labels
+
 ggplot(data = leu1, 
        mapping =  aes(x = growth_rate, y = expression, color = gene)) +
   geom_point() +
@@ -134,6 +149,7 @@ ggplot(data = leu1,
 
 # 8. Change the axis ticks
 # Add a line
+
 ggplot(data = leu1, 
        mapping =  aes(x = growth_rate, y = expression, color = gene)) +
   geom_point() +
@@ -145,6 +161,7 @@ ggplot(data = leu1,
   theme_classic()  
 
 # 9. Themes
+
 ggplot(data = leu1, 
        mapping =  aes(x = growth_rate, y = expression, color = gene)) +
   geom_point() +
@@ -162,8 +179,8 @@ ggplot(data = leu1,
         axis.text = element_text(face = "bold", size = 6),
         plot.title = element_text(hjust = 0.5, vjust = 1))
 
-
 # 10. Legends
+
 ggplot(data = leu1, 
        mapping =  aes(x = growth_rate, y = expression, color = gene)) +
   geom_point() +
@@ -197,23 +214,26 @@ ggplot(data = leu1,
 
 # 11. ggsave() conveniently saves your plots
 # It defaults to saving the last plot you can also specify which plot to save
-ggsave("morning_session/plots/my_last_plot_default.png")
+
+ggsave("afternoon_session/figures/my_last_plot_default.png")
 
 # Or specify the size
-ggsave("morning_session/plots/leu1_plot.png",
+ggsave("afternoon_session/figures/leu1_plot.png",
        width = 10, 
        height = 8, 
        dpi = 300, 
        units = "cm")
 
 # Or change the ouptput type
-ggsave("morning_session/plots/leu1_plot.pdf",
+
+ggsave("afternoon_session/figures/leu1_plot.pdf",
        width = 10, 
        height = 8, 
        dpi = 300, 
        units = "cm")
 
-# 12. One other nice function....
+# 12. One other nice function...
+
 ggplot(data = leucine_genes,
        mapping = aes(x = gene, y = expression, group = growth_rate)) +
   geom_bar(mapping = aes(fill = gene, colour = growth_rate),
@@ -224,5 +244,21 @@ ggplot(data = leucine_genes,
   geom_bar(mapping = aes(fill = gene, colour = growth_rate),
            stat = "identity") +
   coord_flip() # Very useful if your axis labels overlap
+ 
+ # 13. And finally...
+library(plotly)
 
-rm(clean_genes, leu1, leucine_genes, plot_a, plot_b, plot_c)
+standard_plot <- clean_genes %>% 
+  filter(biological_process == "leucine biosynthesis") %>%
+  ggplot(mapping = aes(x = growth_rate, y = expression, color = gene)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  facet_wrap(~ gene)
+standard_plot
+
+interactive_plot <- ggplotly(standard_plot)
+interactive_plot
+
+rm(clean_genes, interactive_plot, leu1, 
+   leucine_genes, plot_a, plot_b, plot_c,
+   standard_plot)

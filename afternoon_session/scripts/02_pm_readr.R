@@ -13,14 +13,15 @@
 
 # Note that readr prints the column specification
 
-# There are many additional arguments that can be fed into this function
-# 2. Explore some of them manually by clicking the "Import Dataset" button
+# 2.There are additional arguments that can be supplied to this function
+# Explore some of them manually by clicking the "Import Dataset" button
 
 # It is designed to flexibly parse many types of data found in the wild, 
 # including instances where the data unexpectedly changes
 # For example, the file contains NAs intermittently
 
 # 3. Let's repeat the process on an .xlsx copy using read_excel from read_xl package
+
 library(readxl) # Not part of the core tidyverse so needs to be called explicitly 
 
 # 4. EAA13.px - Stages of Manufacturing in Trade by State, Statistic and Year
@@ -33,7 +34,9 @@ library(readxl) # Not part of the core tidyverse so needs to be called explicitl
 # 5. Import this file using the following lines of code
 # Once you have done this, examine it
 # install.packages("pxR")
+
 library(pxR)
+
 my_px_object <- read.px("afternoon_session/data/EAA13.px")
 eaa13_df <- as.data.frame(my_px_object)
 
@@ -41,6 +44,7 @@ eaa13_df <- as.data.frame(my_px_object)
 # write_csv(data_to_save, "filename.csv")
 
 # 6. Create a file on your data folder containing the EAA13 data
+
 write_csv(eaa13_df, "afternoon_session/data/clean_eaa13.csv")
 
 rm(eaa13_df, my_px_object)

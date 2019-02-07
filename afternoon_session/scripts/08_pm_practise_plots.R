@@ -32,6 +32,8 @@ ggplot() +
   geom_bar(mapping = aes(x = year, y = total, fill = age),
            stat = "identity") 
 
+who_ire
+
 who_ire_title <- who_ire + 
   labs(title = "I just added a title")
 
