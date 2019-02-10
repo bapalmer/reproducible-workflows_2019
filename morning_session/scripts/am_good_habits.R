@@ -10,12 +10,11 @@
 # Comment on any line that is ambiguous
 # Every file should also contain a header
 
-
 # 2. Organisation ---------------------------------------------------------
 # Great way to navigate to specific points in your R script
 # Ctrl/Cmd+Shift+R
 
-# 3. Assignment ----
+# 3. Assignment -----------------------------------------------------------
 # Always use <-, not =, for assignment
 # Good
 x <- 5

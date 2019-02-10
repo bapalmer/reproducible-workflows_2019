@@ -32,7 +32,7 @@ library(tidyverse)
 
 ```{r Plots, echo = FALSE}
 
-source("scripts/02_eg_plots.R")
+source("scripts/02_eg_figures.R")
 
 # The location of the Rmd file dictates whether the path to other files is intact
 who_ire

@@ -58,7 +58,7 @@ tidy_data <- tidy_data %>%
   mutate_at(vars(gene:expression), 
             funs(trimws)) # This will remove whitespace
 
-# 5. There's a lot of information contained within thisi file
+# 5. There's a lot of information contained within this file
 
 length(unique(tidy_data$gene))
 length(unique(tidy_data$biological_process))
@@ -79,7 +79,7 @@ leu1 <- tidy_data %>%
 not_leu1 <- tidy_data %>%
   
   filter(biological_process == "leucine biosynthesis" &
-           !gene == "LEU1")
+           gene != "LEU1")
 
 leu1_leu2 <- tidy_data %>%
   

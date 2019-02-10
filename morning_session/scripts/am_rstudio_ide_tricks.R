@@ -12,9 +12,9 @@
 # An  easy way to rename all instances of a function/variable
 # The tool is context aware
 # Select the term to change and click on the 'Code' toolbar tab
-mean(1:10)
-mean(1:100)
-mean(1:1000)
+sd(1:10)
+sd(1:100)
+sd(1:1000)
 
 # 3. code snippets
 # Used for quickly inserting common snippets of code

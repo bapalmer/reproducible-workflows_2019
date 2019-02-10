@@ -17,28 +17,26 @@
 
 # 1. Read in the WHO TB data
 
-who_tb <- read_csv("path to file", arguments)
-
 # Ensure the data is loaded correctly
 
-View(who_tb)
+View("Your_data")
 
 # 2. Use gather() to gather the columns starting at new_ep_f014 to new_sp_m65
 # Call the key column "key" and the value column "cases"
 # Tip: Include the arguemnt na.rm = TRUE
 
-View("your data")
+View("Your_data")
 
 # Check the tidied data for any more NA's using is.na()
 # The data should now comprise 76046 rows
 # If no NA's present in a column, you should get FALSE 76046 times
 
-table(is.na("your_data"$country))
-table(is.na("your_data"$iso2))
-table(is.na("your_data"$iso3))
-table(is.na("your_data"$year))
-table(is.na("your_data"$key))
-table(is.na("your_data"$cases))
+table(is.na("Your_data"$country))
+table(is.na("Your_data"$iso2))
+table(is.na("Your_data"$iso3))
+table(is.na("Your_data"$year))
+table(is.na("Your_data"$key))
+table(is.na("Your_data"$cases))
 
 # 3. Use separate() on the 'key' column - what separator will you use (sep = ?)
 # How many columns will be returned?

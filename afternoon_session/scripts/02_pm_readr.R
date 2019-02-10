@@ -10,10 +10,11 @@
 # library(readr) # Loaded when the tidyverse package is called
 
 # 1. Read in "brauer_data.csv" using the readr function read_csv()
+x <- read_csv("afternoon_session/data/brauer_data.csv")
 
 # Note that readr prints the column specification
 
-# 2.There are additional arguments that can be supplied to this function
+# 2. There are additional arguments that can be supplied to this function
 # Explore some of them manually by clicking the "Import Dataset" button
 
 # It is designed to flexibly parse many types of data found in the wild, 
