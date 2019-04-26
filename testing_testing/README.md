@@ -2,9 +2,9 @@
 
 ## Testing, testing, 1, 2 , 3, testing
 
-**In RStudio, open and run test_script.R**
+**In RStudio, open the reproducible-workflows_2019 R-project file and then run test_script.R**
 
- If your Console and Plot windows mirror that of the successful_test.png file, GREAT!
+If your 'Console' and 'Plot' windows mirror that of the successful_test.png file, GREAT!
 
 Otherwise you might want to ensure you (a) opened the R-project `reproducible-workflows_2019` and run the file from there, 
 (b) are using the latest version of R or (c) are using the latest version of the tidyverse.
