@@ -12,7 +12,7 @@ nutrient_names <- c(G = "Glucose", L = "Leucine", P = "Phosphate",
 # Here we're reading in data from a remote source and cleaning it
 
 cleaned_genes_tbl <- read_delim("testing_testing/data/brauer2008_data.tds",
-                               delim = "\t") %>%
+                                delim = "\t") %>%
   separate(NAME, c("name", "BP", "MF", "systematic_name", "number"),
            sep = "\\|\\|")  %>%
   mutate_at(vars(name:systematic_name), funs(trimws)) %>%
