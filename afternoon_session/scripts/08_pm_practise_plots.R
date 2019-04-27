@@ -1,7 +1,7 @@
 #########################################################################
 # 1-day R workshop 
 # Afternoon practical session C
-# 9th February 2019
+# 3rd May 2019
 # 08_pm_practise_plots.R
 #########################################################################
 # Have a go at generating some plots
