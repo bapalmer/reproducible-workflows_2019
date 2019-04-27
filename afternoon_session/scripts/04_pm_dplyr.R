@@ -1,7 +1,7 @@
 #########################################################################
 # 1-day R workshop 
 # Afternoon practical session B
-# 9th February 2019
+# 3rd May 2019
 # 04_pm_dplyr.R
 #########################################################################
 # dplyr is loaded when the tidyverse package is called
