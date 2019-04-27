@@ -1,7 +1,7 @@
 #########################################################################
 # 1-day R workshop 
 # Afternoon practical session A
-# 9th February 2019
+# 3rd May 2019
 # 03_pm_tidyr.R
 #########################################################################
 # tidyr is loaded when the tidyverse package is called
