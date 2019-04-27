@@ -1,7 +1,7 @@
 #########################################################################
 # 1-day R workshop 
 # Morning practical session B
-# 9th February 2019
+# 3rd May 2019
 # 03_eg_clean_data.R
 #########################################################################
 # Load the required packages
