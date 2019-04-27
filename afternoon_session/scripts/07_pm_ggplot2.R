@@ -1,7 +1,7 @@
 #########################################################################
 # 1-day R workshop 
 # Morning practical session C
-# 9th February 2019
+# 3rd May 2019
 # 07_pm_ggplot2.R
 #########################################################################
 # ggplot2 is loaded when the tidyverse package is called
