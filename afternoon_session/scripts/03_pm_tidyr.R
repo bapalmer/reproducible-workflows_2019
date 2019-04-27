@@ -11,8 +11,8 @@
 
 messy_data <- read_csv("afternoon_session/data/brauer_data.csv")
 
-columns_we_need <- c("GID", "NAME", "G0.05", "G0.1", "G0.15", "G0.2", 
-                     "G0.25", "G0.3")
+columns_we_need <- c("GID", "NAME", "G0.05", "G0.1", 
+                     "G0.15", "G0.2", "G0.25", "G0.3")
 
 messy_data <- messy_data[columns_we_need]
 
@@ -32,10 +32,12 @@ messy_data <- messy_data[columns_we_need]
 #            sep = "\\|\\|") 
 
 messy_data[1,2] 
+
 # A tibble: 1 x 1
 # NAME                                                                                   
 # <chr>                                                                                  
 #  1 SFB2       || ER to Golgi transport || molecular function unknown || YNL049C || 1082129
+
 # First element is the gene name
 # Second element is the biological process
 # Third element is the molecular function
@@ -50,17 +52,10 @@ separated_genes <- messy_data %>%
 
 # 3. We still have column headers that are values rather than variables (e.g. G0.05)
 # Gather takes multiple columns and collapses into key-value pairs, 
-# duplicating all other columns as needed
-# You use gather() when you notice that you have columns that are not variables
-
-gathered_genes <- gather(separated_genes, 
-                         key = sample, 
-                         value = expression, 
-                         G0.05:G0.3) 
-
-# gather() takes multiple columns, and gathers them into key-value pairs: 
 # the key would be the original column names with their associated values
+# duplicating all other columns as needed
 # i.e. it makes "wide" data long
+
 # The original column names become values in the newly created key column, sample
 # The original values are placed in newly created value column, expression
 # i.e. long_data <- gather(wide_data, 
@@ -68,6 +63,11 @@ gathered_genes <- gather(separated_genes,
 #                          value = "new_column_B_name", 
 #                          column_1:column_n)
 # A useful arguement to include is na.rm = TRUE to remove NA cases
+
+gathered_genes <- gather(separated_genes, 
+                         key = sample, 
+                         value = expression, 
+                         G0.05:G0.3) 
 
 # 4. The data is still "untidy"
 # The cells in column 'sample' contain two pieces of information (e.g. G0.05)
@@ -90,7 +90,7 @@ undo_separate <- separate_sample %>%
 # 6. How do we handle NA values if they are present?
 # We got warnings earlier alerting us to the presence of some NAs within our data
 
-na_rows <- messy_data[rowSums(is.na(messy_data)) > 0,] # This will give us all rows with NA
+na_rows <- messy_data[rowSums(is.na(messy_data)) > 0, ] # This will give us all rows with NA
 na_rows <- na_rows %>% 
   # If the data is a data frame use a named list
   replace_na(list(G0.05 = list("unknown"))) 
@@ -113,3 +113,9 @@ rm(columns_we_need, gathered_genes, messy_data, na_rows, separated_genes,
 
 # fill() - Somethings values are missing as the value is carried forward, just not entered
 # Fill will replace empty cells with the most recent non-missing value
+
+# 8. NOTE: gather and spread are now deprecated and to be replaced by 
+# pivot_longer() and pivot_wider in upcoming releases the tidyverse
+# Why?
+# Nobody has ever remembered how to use spread without looking up stackoverflow first!!
+# For more visit https://tidyr.tidyverse.org/dev/articles/pivot.html
