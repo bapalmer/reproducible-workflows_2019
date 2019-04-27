@@ -1,7 +1,7 @@
 #########################################################################
 # 1-day R workshop 
 # Morning practical session A
-# 9th February 2019
+# 3rd May 2019
 # am_too_much_choice.R
 #########################################################################
 # There are many, many ways to perform similar operations in R,
