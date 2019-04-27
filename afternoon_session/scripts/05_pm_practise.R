@@ -1,7 +1,7 @@
 #########################################################################
 # 1-day R workshop 
 # Morning practical session B
-# 9th February 2019
+# 3rd May 2019
 # 05_pm_practise.R
 #########################################################################
 # Lets take what we've seen and apply it to a messy data set
