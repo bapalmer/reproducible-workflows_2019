@@ -1,7 +1,7 @@
 #########################################################################
 # 1-day R workshop 
 # Afternoon practical session A
-# 9th February 2019
+# 3rd May 2019
 # 02_pm_readr.R
 #########################################################################
 # You can load the core tidyverse packages using library(tidyverse)
