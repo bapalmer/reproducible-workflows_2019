@@ -13,7 +13,8 @@
 
 clean_genes <- read_csv("afternoon_session/data/clean_brauer_data.csv")
 
-# Let's zoom in on a single gene 
+# Let's zoom in on a single gene
+
 leu1 <- clean_genes %>%
   filter(gene == "LEU1" & nutrient == "Glucose") %>%
   select(gene, growth_rate, expression)
@@ -54,6 +55,7 @@ plot_c +
 # Ans: Aesthetics defined globally in plot_c but locally in plot_b
 
 # 2. Add some colour
+
 ggplot(data = leu1, 
        mapping = aes(x = growth_rate, y = expression, color = gene)) +
   geom_point() 
@@ -246,6 +248,7 @@ ggplot(data = leucine_genes,
   coord_flip() # Very useful if your axis labels overlap
  
  # 13. And finally...
+
 library(plotly)
 
 standard_plot <- clean_genes %>% 
