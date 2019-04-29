@@ -126,7 +126,7 @@ ggplot(data = leucine_genes,
 # Basic plot
 
 basic_plot <- ggplot(data = leu1, 
-       mapping =  aes(x = growth_rate, y = expression, color = gene)) +
+                     mapping =  aes(x = growth_rate, y = expression, color = gene)) +
   geom_point() +
   geom_line() 
 
@@ -138,7 +138,7 @@ basic_plot +
   
   labs(x = "Growth rate (pg/ms)", y = "Expression (%)", # Define labels
        title = "Leucine biosynthesis genes") +
-    theme_classic() # Format the background
+  theme_classic() # Format the background
 
 # Add some more labels
 
@@ -148,6 +148,7 @@ basic_plot +
        title = "Leucine biosynthesis genes",
        subtitle = "Preliminary analysis",
        caption = "Data from Brauer et al., 2008") +
+  
   theme_classic() # Format the background
 
 # 8. Change the axis ticks
@@ -156,9 +157,12 @@ basic_plot +
 basic_plot +
   
   geom_hline(yintercept = c(-0.5, 0), linetype="dashed", color = "green", size = 1) +
+  
   labs(x = "Growth rate (pg/ms)", y = "Expression (%)", 
        title = "Leucine biosynthesis genes") + 
+  
   scale_y_continuous(breaks = seq(-1.0, 0.0, by = 0.2)) +
+  
   theme_classic()  
 
 # 9. Themes
@@ -166,10 +170,14 @@ basic_plot +
 basic_plot +
   
   geom_hline(yintercept = c(-0.5, 0), linetype="dashed", color = "green", size = 1) +
+  
   labs(x = "Growth rate (pg/ms)", y = "Expression (%)", 
        title = "Leucine biosynthesis genes") + 
+  
   scale_y_continuous(breaks = seq(-1.0, 0.0, by = 0.2)) +
+  
   theme_classic()   +
+  
   theme(axis.line.x = element_line(color="orange", size = 1), # Format x axis
         axis.line.y = element_line(color="purple", size = 1), # Format y axis
         panel.grid.major = element_line(colour = "black"), # Format major gridlines
@@ -183,10 +191,14 @@ basic_plot +
 basic_plot +
   
   geom_hline(yintercept = c(-0.5, 0), linetype="dashed", color = "black", size = 1) +
+  
   labs(x = "Growth rate (pg/ms)", y = "Expression (%)", 
        title = "") + 
+  
   scale_y_continuous(breaks = seq(-1.0, 0.0, by = 0.2)) +
+  
   theme_classic()   +
+  
   theme(axis.line.x = element_line(color="black", size = 1),
         axis.line.y = element_line(color="black", size = 1), 
         axis.title = element_text(face = "bold", size = 8),
@@ -196,10 +208,13 @@ basic_plot +
 basic_plot +
   
   geom_hline(yintercept = c(-0.5, 0), linetype="dashed", color = "black", size = 1) +
+  
   labs(x = "Growth rate (pg/ms)", y = "Expression (%)", 
        title = "") + 
   scale_y_continuous(breaks = seq(-1.0, 0.0, by = 0.2)) +
-  theme_classic()   +
+  
+  theme_classic() +
+  
   theme(axis.line.x = element_line(color="black", size = 1),
         axis.line.y = element_line(color="black", size = 1), 
         axis.title = element_text(face = "bold", size = 8),
@@ -230,32 +245,33 @@ ggsave("afternoon_session/figures/leu1_plot.pdf",
 
 # 12. One other nice function...
 
-ggplot(data = leucine_genes,
-       mapping = aes(x = gene, y = expression, group = growth_rate)) +
-  geom_bar(mapping = aes(fill = gene, colour = growth_rate),
-           stat = "identity")
+xy <- ggplot(data = leucine_genes,
+             mapping = aes(x = molecular_function, y = expression, group = growth_rate)) +
+  
+  geom_jitter(mapping = aes(colour = gene), 
+              size = 3,
+              stat = "identity") +
+  
+  theme_minimal()
 
-ggplot(data = leucine_genes,
-       mapping = aes(x = gene, y = expression, group = growth_rate)) +
-  geom_bar(mapping = aes(fill = gene, colour = growth_rate),
-           stat = "identity") +
+xy
+
+# Invert your x and y axes with one line of code
+
+yx <- xy +
   
   coord_flip() # Very useful if your axis labels overlap
- 
- # 13. And finally...
+
+yx
+
+# 13. And finally...
 
 library(plotly)
 
-standard_plot <- clean_genes %>% 
-  filter(biological_process == "leucine biosynthesis") %>%
-  ggplot(mapping = aes(x = growth_rate, y = expression, color = gene)) +
-  geom_point() +
-  geom_smooth(method = "lm", se = FALSE) +
-  facet_wrap(~ gene)
+# Add in sprinkle of some cosmic fairy dust...
 
-standard_plot
+interactive_plot <- ggplotly(yx)
 
-interactive_plot <- ggplotly(standard_plot)
 interactive_plot
 
 rm(clean_genes, interactive_plot, leu1, leucine_genes, 
