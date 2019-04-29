@@ -19,7 +19,7 @@ leu1 <- clean_genes %>%
   filter(gene == "LEU1" & nutrient == "Glucose") %>%
   select(gene, growth_rate, expression)
 
-# What are the three main elements needed to generate a ggplot2 graph?
+# There are three main elements needed to generate a ggplot graph?
 # A. The data
 # B. The geom function
 # C. The mappings
@@ -30,8 +30,8 @@ plot_a <- ggplot(data = leu1) # Creates a coordinate system
 plot_a # i.e. an empty graph
 
 # The second part is defining the coordinate system;
-# What elements of the data are to be plotted
-# geoms are geometric objects that represent the data
+# - the aesthetics of the data are to be plotted
+# - the geoms (geometric objects) that represent the data
 
 plot_b <- plot_a + # In ggplot2 we add layers to develop the plot
   geom_point(mapping = aes(x = growth_rate, y = expression)) 
@@ -44,7 +44,7 @@ plot_c <- ggplot(data = leu1, mapping = aes(x = growth_rate, y = expression)) +
 plot_c
 
 # What's the main difference between plot_b and plot_c?
-# Well lets try adding another geom....
+# Well lets try adding another geom...
 
 plot_b +
   geom_smooth(method = "lm")
@@ -52,7 +52,7 @@ plot_b +
 plot_c + 
   geom_smooth(method = "lm")
 
-# Ans: Aesthetics defined globally in plot_c but locally in plot_b
+# Ans: Aesthetics are defined globally in plot_c but locally in plot_b
 
 # 2. Add some colour
 
@@ -65,6 +65,7 @@ ggplot(data = leu1,
 ggplot(data = leu1, 
        mapping =  aes(x = growth_rate, y = expression,  color = gene)) +
   geom_point() +
+  
   # Now, lets add in a layer of code, i.e. a best fit line to the data
   geom_smooth(method = "lm", se = FALSE) 
 
@@ -74,6 +75,9 @@ ggplot(data = leu1,
 
 clean_genes %>%
   filter(biological_process == "leucine biosynthesis") %>%
+  
+  # But remember it's '%>%' for piping and '+' for plotting
+  
   ggplot(mapping = aes(x = growth_rate, y = expression, color = gene)) +
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) 
@@ -96,7 +100,7 @@ clean_genes %>%
   geom_point() +
   geom_smooth(mapping = aes(linetype = gene), method = "lm", se = FALSE) 
 
-# 5. Using "facet_wrap" we can create subplots
+# 5. Using 'facet_wrap' we can create subplots
 
 clean_genes %>%
   filter(biological_process == "leucine biosynthesis") %>%
@@ -107,8 +111,7 @@ clean_genes %>%
 
 # 6. It is possible to define different aesthetics in different layers
 # You can also specify different data for each layer
-# The local argument for the geom overrides the global argument from ggplot
-# for that layer only
+# The local argument for the geom overrides the global argument for that layer
 
 leucine_genes <- clean_genes %>%
   filter(biological_process == "leucine biosynthesis" & nutrient == "Glucose")
@@ -122,27 +125,25 @@ ggplot(data = leucine_genes,
 # 7. Modifying other elements of the output using labels and themes
 # Basic plot
 
-ggplot(data = leu1, 
+basic_plot <- ggplot(data = leu1, 
        mapping =  aes(x = growth_rate, y = expression, color = gene)) +
   geom_point() +
   geom_line() 
 
+basic_plot
+
 # Add some labels
 
-ggplot(data = leu1, 
-       mapping =  aes(x = growth_rate, y = expression, color = gene)) +
-  geom_point() +
-  geom_line() +
+basic_plot +
+  
   labs(x = "Growth rate (pg/ms)", y = "Expression (%)", # Define labels
        title = "Leucine biosynthesis genes") +
     theme_classic() # Format the background
 
 # Add some more labels
 
-ggplot(data = leu1, 
-       mapping =  aes(x = growth_rate, y = expression, color = gene)) +
-  geom_point() +
-  geom_line() +
+basic_plot +
+  
   labs(x = "Growth rate (pg/ms)", y = "Expression (%)", # Define labels
        title = "Leucine biosynthesis genes",
        subtitle = "Preliminary analysis",
@@ -152,10 +153,8 @@ ggplot(data = leu1,
 # 8. Change the axis ticks
 # Add a line
 
-ggplot(data = leu1, 
-       mapping =  aes(x = growth_rate, y = expression, color = gene)) +
-  geom_point() +
-  geom_line() +
+basic_plot +
+  
   geom_hline(yintercept = c(-0.5, 0), linetype="dashed", color = "green", size = 1) +
   labs(x = "Growth rate (pg/ms)", y = "Expression (%)", 
        title = "Leucine biosynthesis genes") + 
@@ -164,10 +163,8 @@ ggplot(data = leu1,
 
 # 9. Themes
 
-ggplot(data = leu1, 
-       mapping =  aes(x = growth_rate, y = expression, color = gene)) +
-  geom_point() +
-  geom_line() +
+basic_plot +
+  
   geom_hline(yintercept = c(-0.5, 0), linetype="dashed", color = "green", size = 1) +
   labs(x = "Growth rate (pg/ms)", y = "Expression (%)", 
        title = "Leucine biosynthesis genes") + 
@@ -183,10 +180,8 @@ ggplot(data = leu1,
 
 # 10. Legends
 
-ggplot(data = leu1, 
-       mapping =  aes(x = growth_rate, y = expression, color = gene)) +
-  geom_point() +
-  geom_line() +
+basic_plot +
+  
   geom_hline(yintercept = c(-0.5, 0), linetype="dashed", color = "black", size = 1) +
   labs(x = "Growth rate (pg/ms)", y = "Expression (%)", 
        title = "") + 
@@ -198,10 +193,8 @@ ggplot(data = leu1,
         axis.text = element_text(face = "bold", size = 8),
         legend.position ="none") # Remove the legend
 
-ggplot(data = leu1, 
-       mapping =  aes(x = growth_rate, y = expression, color = gene)) +
-  geom_point() +
-  geom_line() +
+basic_plot +
+  
   geom_hline(yintercept = c(-0.5, 0), linetype="dashed", color = "black", size = 1) +
   labs(x = "Growth rate (pg/ms)", y = "Expression (%)", 
        title = "") + 
@@ -220,6 +213,7 @@ ggplot(data = leu1,
 ggsave("afternoon_session/figures/my_last_plot_default.png")
 
 # Or specify the size
+
 ggsave("afternoon_session/figures/leu1_plot.png",
        width = 10, 
        height = 8, 
@@ -245,6 +239,7 @@ ggplot(data = leucine_genes,
        mapping = aes(x = gene, y = expression, group = growth_rate)) +
   geom_bar(mapping = aes(fill = gene, colour = growth_rate),
            stat = "identity") +
+  
   coord_flip() # Very useful if your axis labels overlap
  
  # 13. And finally...
@@ -257,11 +252,11 @@ standard_plot <- clean_genes %>%
   geom_point() +
   geom_smooth(method = "lm", se = FALSE) +
   facet_wrap(~ gene)
+
 standard_plot
 
 interactive_plot <- ggplotly(standard_plot)
 interactive_plot
 
-rm(clean_genes, interactive_plot, leu1, 
-   leucine_genes, plot_a, plot_b, plot_c,
-   standard_plot)
+rm(clean_genes, interactive_plot, leu1, leucine_genes, 
+   plot_a, plot_b, plot_c, basic_plot, standard_plot)
