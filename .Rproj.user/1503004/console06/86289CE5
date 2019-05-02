@@ -1,27 +1,4 @@
-[0m[0K]0;:/c/Users/bpalmer/Documents/R_Users_Workshop/T_L_workshop/reproducible-workflows_2019[?25l
-[0;32mbpalmer@ph-wgb5 [0;35m [0;33m~/Documents/R_Users_Workshop/T_L_workshop/reproducible-workflows_2019[0;36m (master[0K)
-[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hl[0Kl[0K[11G[?25l$ git all -[0K[?25hA[0K[?25l
-[0K[?25hgit: 'all' is not a git command. See 'git --help'.[0K[?25l
-[0K
-The most similar command is[0K
-        pull[0K
-[0K[?25h[?25l
-[0;32mbpalmer@ph-wgb5 [0;35m [0;33m~/Documents/R_Users_Workshop/T_L_workshop/reproducible-workflows_2019[0;36m (master[0K)
-[0m[0K
-$[0K[3G[?25h[?25l$ git all -A[0K[?25h[?25l$ git all -[0K[13G[?25h[12G[?25l$ git all[0K[11G[?25h[10G[?25l$ git al[0K[?25h[?25l$ git a[0K[?25h[?25l$ git[0K[7G[?25h[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K[?25l
-[0K[?25hwarning: LF will be replaced by CRLF in example_project/data/2019-02-06_clean_who_tb_data.csv.[0K[?25l
-The file will have its original line endings in your working directory.[0K
-[0K[?25h[?25l
-[0;32mbpalmer@ph-wgb5 [0;35m [0;33m~/Documents/R_Users_Workshop/T_L_workshop/reproducible-workflows_2019[0;36m (master[0K)
-[0m[0K
-$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25hm[0K[17G[?25l$ git commit -m "[0K[?25hi[0Kn[0Ki[0Kt[0Kl[0K[?25l$ git commit -m "init[0K[?25ha[0Kl[0K[25G[24G[?25l$ git commit -m "inita[0K[24G[?25h[23G[?25l$ git commit -m "init[0K[?25h[?25l$ git commit -m "ini[0K[?25ht[0Ki[0Ka[0Kl[0K[26G[?25l$ git commit -m "initial c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K"[0K[?25l
-[0K[?25h[master 26d1e82] initial commit[0K[?25l
- 46 files changed, 52511 insertions(+), 3 deletions(-)[0K
- create mode 100644 .gitignore[0K
- create mode 100644 .rprofile[0K
- rewrite README.md (100%)[0K
- create mode 100644 afternoon_session/data/EAA13.px[0K
+
  create mode 100644 afternoon_session/data/brauer_data.csv[0K
  create mode 100644 afternoon_session/data/brauer_data.xlsx[0K
  create mode 100644 afternoon_session/data/who_tb_data.csv[0K
@@ -960,4 +937,99 @@ git add -A[0K[?25h[?25l[2A> git add -A[0K
 [0;32mbpalmer@ph-wgb5 [0;35m [0;33m~/Documents/R_Users_Workshop/T_L_workshop/reproducible-workflows_2019[0;36m[0K
 (master)[0m[0K
 [?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K[?25l
+[0K[?25hwarning: LF will be replaced by CRLF in .Rproj.user/1503004/sources/prop/E6005999.[0K[?25l
+The file will have its original line endings in your working directory.[0K
+[0K[?25h[?25l
+[0;32mbpalmer@ph-wgb5 [0;35m [0;33m~/Documents/R_Users_Workshop/T_L_workshop/reproducible-workflows_2019[0;36m[0K
+(master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git c[0K[?25ho[0Km[0Km[0Ki[0Kt[0K[14G[?25l$ git commit -[0K[?25h[16G[?25l$ git commit - m[0K[?25h[?25l$ git commit -[0K[16G[?25h[15G[?25l$ git commit -m[0K[?25h[17G[?25l$ git commit -m "[0K[?25hM[0Ka[0Ky[0K[22G[?25l$ git commit -m "May 2[0K[?25h0[0K1[0K9[0K[27G[?25l$ git commit -m "May 2019 u[0K[?25hp[0Kd[0Ka[0Kt[0Ke[0K"[0K[?25l
+[0K[?25h[master c0c0949] May 2019 update[0K[?25l
+ Committer: Palmer <b.palmer@ucc.ie>[0K
+Your name and email address were configured automatically based[0K
+on your username and hostname. Please check that they are accurate.[0K
+You can suppress this message by setting them explicitly. Run the[0K
+following command and follow the instructions in your editor to edit[0K
+your configuration file:[0K
+[0K
+    git config --global --edit[0K
+[0K
+After doing this, you may fix the identity used for this commit with:[0K
+[0K
+    git commit --amend --reset-author[0K
+[0K
+ 59 files changed, 616 insertions(+), 500 deletions(-)[0K
+ rewrite .Rproj.user/1503004/console06/INDEX001 (87%)[0K
+ rewrite afternoon_session/figures/my_last_plot_default.png (98%)[0K
+ rewrite afternoon_session/scripts/05_pm_practise.R (71%)[0K
+ create mode 100644 afternoon_session/scripts/magrittr.R[0K
+ delete mode 100644 example_project/.Rproj.user/1503004/sources/per/t/13583C18[0K
+ delete mode 100644 example_project/.Rproj.user/1503004/sources/per/t/13583C18-content[0Ks
+[0K
+ delete mode 100644 example_project/.Rproj.user/1503004/sources/per/t/893B8B49[0K
+ delete mode 100644 example_project/.Rproj.user/1503004/sources/per/t/893B8B49-content[0Ks
+[0K
+ delete mode 100644 example_project/.Rproj.user/1503004/sources/per/t/BF9BD813[0K
+ delete mode 100644 example_project/.Rproj.user/1503004/sources/per/t/BF9BD813-content[0Ks
+[0K
+ rename example_project/data/{2019-02-09_clean_who_tb_data.csv => 2019-05-02_clean_who[0K_
+tb_data.csv} (100%)[0K
+ create mode 100644 example_project/data/who_tb_dictionary.txt[0K
+ rename lectures/{2019-02-09_am_01_main_lecture.pdf => 2019-05-01_am_01_main_lecture.p[0Kd
+f} (81%)[0K
+ rename lectures/{2019-02-09_am_02_practical_sessions.pdf => 2019-05-01_am_02_practica[0Kl
+_sessions.pdf} (82%)[0K
+ rename lectures/{2019-02-09_pm_01_main_lecture.pdf => 2019-05-01_pm_01_main_lecture.p[0Kd
+f} (83%)[0K
+ rename lectures/{2019-02-09_pm_02_practical_sessions.pdf => 2019-05-01_pm_02_practica[0Kl
+_sessions.pdf} (76%)[0K
+ delete mode 100644 successful_test.png[0K
+[0K[?25h[?25l
+[0;32mbpalmer@ph-wgb5 [0;35m [0;33m~/Documents/R_Users_Workshop/T_L_workshop/reproducible-workflows_2019[0;36m[0K
+(master)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Ks[0Kh[0K[?25l
+[0K[?25hTo https://github.com/bapalmer/reproducible-workflows_2019.git[0K[?25l
+ [0;31m! [rejected]       [0m master -> master (fetch first)[0K
+[0;31merror: failed to push some refs to 'https://github.com/bapalmer/reproducible-workflows[0K_
+2019.git'[0m[0K
+[0;33mhint: Updates were rejected because the remote contains work that you do[0m[0K
+[0;33mhint: not have locally. This is usually caused by another repository pushing[0m[0K
+[0;33mhint: to the same ref. You may want to first integrate the remote changes[0m[0K
+[0;33mhint: (e.g., 'git pull ...') before pushing again.[0m[0K
+[0;33mhint: See the 'Note about fast-forwards' in 'git push --help' for details.[0m[0K
+[0K[?25h[?25l
+[0;32mbpalmer@ph-wgb5 [0;35m [0;33m~/Documents/R_Users_Workshop/T_L_workshop/reproducible-workflows_2019[0;36m[0K[18G[?25h[?25l
+(master)[0m[0K
+$[0K[3G[?25h[0m[0K]0;:/c/Users/bpalmer/Documents/R_Users_Workshop/T_L_workshop/reproducible-workflows_2019[?25l
+[0;32mbpalmer@ph-wgb5 [0;35m [0;33m~/Documents/R_Users_Workshop/T_L_workshop/reproducible-workflows_2019[0;36m[0K
+(master)[0m[0K
+[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git p[0K[?25hu[0Kl[0Kl[0K[?25l
+[0K[?25hremote: Enumerating objects: 151, done.[0K[?25l
+remote: Counting objects: 100% (151/151), done.[0K
+remote: Compressing objects: 100% (128/128), done.[0K
+[0K[?25hremote: Total 128 (delta 96), reused 0 (delta 0), pack-reused 0 eceiving objects:  17%[0K[?25l
+(22/128)[0K
+Receiving objects: 100% (128/128), 23.93 KiB | 1.84 MiB/s, done.[0K
+Resolving deltas:  69% (67/96)[0K[1G[?25hResolving deltas: 100% (96/96), completed with 22 local objects.[0K[?25l
+[0K[?25hFrom https://github.com/bapalmer/reproducible-workflows_2019[0K[?25l
+   e8797cc..884df54  master     -> origin/master[0K
+[0K[?25hAuto-merging morning_session/scripts/am_rstudio_ide_tricks.R[0K[?25l
+Auto-merging morning_session/scripts/am_good_habits.R[0K
+Auto-merging morning_session/scripts/am_bad_habits.R[0K
+Auto-merging afternoon_session/scripts/magrittr.R[0K
+CONFLICT (add/add): Merge conflict in afternoon_session/scripts/magrittr.R[0K
+Auto-merging afternoon_session/scripts/08_pm_practise_plots.R[0K
+CONFLICT (content): Merge conflict in afternoon_session/scripts/08_pm_practise_plots.R[0K
+Auto-merging afternoon_session/scripts/07_pm_ggplot2.R[0K
+CONFLICT (content): Merge conflict in afternoon_session/scripts/07_pm_ggplot2.R[0K
+Auto-merging afternoon_session/scripts/05_pm_practise.R[0K
+CONFLICT (content): Merge conflict in afternoon_session/scripts/05_pm_practise.R[0K
+Auto-merging afternoon_session/scripts/03_pm_tidyr.R[0K
+CONFLICT (content): Merge conflict in afternoon_session/scripts/03_pm_tidyr.R[0K
+Auto-merging afternoon_session/scripts/02_pm_readr.R[0K
+Auto-merging afternoon_session/scripts/01_pm_tibbles.R[0K
+[0K[?25hAutomatic merge failed; fix conflicts and then commit the result.[0K[?25l
+[0K[?25h[?25l
+[0;32mbpalmer@ph-wgb5 [0;35m [0;33m~/Documents/R_Users_Workshop/T_L_workshop/reproducible-workflows_2019[0;36m[0K
+(master|MERGING)[0m[0K
+$[0K[3G[?25h[?25l$ g[0K[?25hi[0Kt[0K[7G[?25l$ git a[0K[?25hd[0Kd[0K[11G[?25l$ git add -[0K[?25hA[0K[?25l
 [0K[?25h

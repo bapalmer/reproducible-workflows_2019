@@ -118,4 +118,8 @@ rm(columns_we_need, gathered_genes, messy_data, na_rows, separated_genes,
 # pivot_longer() and pivot_wider in upcoming releases the tidyverse
 # Why?
 # Nobody has ever remembered how to use spread without looking up stackoverflow first!!
+<<<<<<< HEAD
 # For more visit https://tidyr.tidyverse.org/dev/articles/pivot.html
+=======
+# For more visit https://tidyr.tidyverse.org/dev/articles/pivot.html
+>>>>>>> 884df54d93493c6ad50e1614b24099de583f7f93

@@ -104,4 +104,8 @@ ire_tb_max <- who_v7 %>%
 # Use the magrittr operator (%>%) to create one continuous chuck of code
 # to re-create what we did above, without all the intermediate tibbles
 
+<<<<<<< HEAD
 # Write your cleaned tibble to file using write_csv()
+=======
+# Write your cleaned tibble to file using write_csv()
+>>>>>>> 884df54d93493c6ad50e1614b24099de583f7f93

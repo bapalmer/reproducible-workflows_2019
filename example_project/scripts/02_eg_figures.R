@@ -1,7 +1,7 @@
 #########################################################################
 # 1-day R workshop 
 # Morning practical session B
-# 9th February 2019
+# 3rd May 2019
 # 02_eg_figures.R
 #########################################################################
 # Read in the clean WHO TB data
