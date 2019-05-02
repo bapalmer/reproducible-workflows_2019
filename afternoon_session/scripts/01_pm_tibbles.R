@@ -1,10 +1,11 @@
 #########################################################################
 # 1-day R workshop 
 # Afternoon practical session A
-# 9th February 2019
+# 3rd May 2019
 # 01_pm_tibbles.R
 #########################################################################
 # Load the tidyverse
+
 library(tidyverse)
 
 # 1. Let's examine the main differences between a data frame and a tibble

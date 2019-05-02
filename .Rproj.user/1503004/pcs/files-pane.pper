@@ -2,7 +2,7 @@
     "path" : "~/R_Users_Workshop/T_L_workshop/reproducible-workflows_2019/afternoon_session/scripts",
     "sortOrder" : [
         {
-            "ascending" : false,
+            "ascending" : true,
             "columnIndex" : 2
         }
     ]

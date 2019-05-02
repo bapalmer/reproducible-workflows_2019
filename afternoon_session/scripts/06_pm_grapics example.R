@@ -1,7 +1,7 @@
 #########################################################################
 # 1-day R workshop 
 # Morning practical session C
-# 9th February 2019
+# 3rd May 2019
 # 06_pm_graphics_example.R
 #########################################################################
 # Here's an example using the graphics packages that comes with base R

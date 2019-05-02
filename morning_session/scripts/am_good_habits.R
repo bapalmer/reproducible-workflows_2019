@@ -1,7 +1,7 @@
 #########################################################################
 # 1-day R workshop 
 # Morning practical session A
-# 9th February 2019
+# 3rd May 2019
 # am_good_habits.R
 #########################################################################
 # 1. This file is already machine readable, but it needs to be human readable too

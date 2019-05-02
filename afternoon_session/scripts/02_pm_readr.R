@@ -1,21 +1,22 @@
 #########################################################################
 # 1-day R workshop 
 # Afternoon practical session A
-# 9th February 2019
+# 3rd May 2019
 # 02_pm_readr.R
 #########################################################################
 # You can load the core tidyverse packages using library(tidyverse)
 # But you can also load each package individually just like any other package
 
-# library(readr) # Loaded when the tidyverse package is called
+# library(readr)
 
 # 1. Read in "brauer_data.csv" using the readr function read_csv()
+
 x <- read_csv("afternoon_session/data/brauer_data.csv")
 
 # Note that readr prints the column specification
 
 # 2. There are additional arguments that can be supplied to this function
-# Explore some of them manually by clicking the "Import Dataset" button
+# Lets explore some of them manually by clicking the "Import Dataset" button
 
 # It is designed to flexibly parse many types of data found in the wild, 
 # including instances where the data unexpectedly changes
@@ -24,6 +25,10 @@ x <- read_csv("afternoon_session/data/brauer_data.csv")
 # 3. Let's repeat the process on an .xlsx copy using read_excel from read_xl package
 
 library(readxl) # Not part of the core tidyverse so needs to be called explicitly 
+
+x <- read_xlsx("afternoon_session/data/brauer_data.xlsx")
+
+# The warning messages relate to the presence of NAs in the data
 
 # 4. EAA13.px - Stages of Manufacturing in Trade by State, Statistic and Year
 # View the EAA13.px file downloaded from data.gov.ie using Notepad or similar

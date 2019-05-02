@@ -1,10 +1,12 @@
 #########################################################################
 # 1-day R workshop 
 # Morning practical session A
-# 9th February 2019
+# 3rd May 2019
 # am_bad_habits.R
 #########################################################################
 # The code below is from one of my early R scripts only three years ago!
+
+# install.packages("igraph")
 
 # Load the required package
 library(igraph)

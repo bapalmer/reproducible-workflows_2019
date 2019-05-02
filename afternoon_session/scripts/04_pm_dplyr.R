@@ -1,7 +1,7 @@
 #########################################################################
 # 1-day R workshop 
 # Afternoon practical session B
-# 9th February 2019
+# 3rd May 2019
 # 04_pm_dplyr.R
 #########################################################################
 # dplyr is loaded when the tidyverse package is called
@@ -11,17 +11,20 @@
 
 messy_data <- read_csv("afternoon_session/data/brauer_data.csv") %>%
   
+  # Use the concatenate function
   select(c("GID", "NAME", "G0.05", "G0.1", "G0.15", "G0.2", 
            "G0.25", "G0.3"))
 
 # We could also do this.....
 messy_data <- read_csv("afternoon_session/data/brauer_data.csv") %>%
   
+  # Refer to the columns directly by their names
   select(GID, NAME, G0.05, G0.1, G0.15, G0.2, G0.25, G0.3)
 
 # Or this.......
 messy_data <- read_csv("afternoon_session/data/brauer_data.csv") %>%
   
+  # Get all columns between ref A to ref Z using ':'
   select(GID, NAME, G0.05:G0.3)
 
 # Generally, whatever results in the least amount of typing wins
@@ -30,7 +33,7 @@ messy_data <- read_csv("afternoon_session/data/brauer_data.csv") %>%
 # Let's get rid of it using select()
 
 messy_data <- messy_data %>%
-  select(-GID)
+  select(-GID) # A minus sign in front of the column signifies removal
 
 # 3. Let's re-run of tidy code from earlier
 
@@ -48,6 +51,13 @@ tidy_data <- messy_data %>%
            c("nutrient", "growth_rate"),
            sep = 1)
 
+# Note: 
+# Should column names include spaces you'll need to use back ticks (``)
+
+# Example:
+# separate(crappy column name, ... would throw an error
+# separate(`crappy column name`, ... would solve this
+
 # 4. When we separated by "|", we ended up with whitespace at the start and end
 # of some of the columns
 
@@ -57,6 +67,16 @@ tidy_data <- tidy_data %>%
   
   mutate_at(vars(gene:expression), 
             funs(trimws)) # This will remove whitespace
+
+# Note the warning message seen below
+# We saw it when we ran the test_script.R
+# As the software updates certain elements are replaced by more efficent 
+# or intuitive elements
+
+tidy_data <- tidy_data %>%
+  
+  mutate_at(vars(gene:expression), 
+            list(trimws)) 
 
 # 5. There's a lot of information contained within this file
 
@@ -90,6 +110,7 @@ rm(leu1_leu2, leucine, messy_data, not_leu1, tidy_data)
 # 7. Some mutate() examples
 # When we separated our columns earlier, the data within
 # underwent coercion to character vectors
+
 leu1 <- leu1 %>%
   
   mutate(growth_rate = as.numeric(growth_rate),
