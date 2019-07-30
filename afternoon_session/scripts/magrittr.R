@@ -63,8 +63,4 @@ rnorm(100) %>%
 rnorm(100) %>%
   matrix(ncol = 2) %T>%
   plot() %>%
-<<<<<<< HEAD
   str()
-=======
-  str()
->>>>>>> 884df54d93493c6ad50e1614b24099de583f7f93
