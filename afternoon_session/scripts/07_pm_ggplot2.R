@@ -275,8 +275,5 @@ interactive_plot <- ggplotly(yx)
 interactive_plot
 
 rm(clean_genes, interactive_plot, leu1, leucine_genes, 
-<<<<<<< HEAD
    plot_a, plot_b, plot_c, basic_plot, standard_plot)
-=======
-   plot_a, plot_b, plot_c, basic_plot, standard_plot)
->>>>>>> 884df54d93493c6ad50e1614b24099de583f7f93
+
