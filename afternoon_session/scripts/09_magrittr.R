@@ -2,7 +2,7 @@
 # 1-day R workshop 
 # Afternoon practical session A
 # 3rd May 2019
-# magrittr.R
+# 09_magrittr.R
 #########################################################################
 # Load the magrittr package
 
